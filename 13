@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+struct TravelPlanner {
+    char destination[50];
+    char departureDate[11];
+    char returnDate[11];
+};
+
+int main() {
+    struct TravelPlanner trip;
+
+    printf("Enter your destination: ");
+    fgets(trip.destination, sizeof(trip.destination), stdin);
+    trip.destination[strcspn(trip.destination, "\n")] = 0;
+
+printf("Enter your departure date (MM/DD/YYYY): ");
+    fgets(trip.departureDate, sizeof(trip.departureDate), stdin);
+    trip.departureDate[strcspn(trip.departureDate, "\n")] = 0;
+
+    printf("Enter your return date (MM/DD/YYYY): ");
+    fgets(trip.returnDate, sizeof(trip.returnDate), stdin);
+    trip.returnDate[strcspn(trip.returnDate, "\n")] = 0;
+
+    printf("\nYour travel plan is as follows:\n");
+    printf("Destination: %s\n", trip.destination);
+    printf("Departure Date: %s\n", trip.departureDate);
+    printf("Return Date: %s\n", trip.returnDate);
+
+    return 0;
+}
